@@ -42,13 +42,13 @@ const PasswordMeter: React.FC<PasswordMeterProps> = ({ password, levels }) => {
           style={[
             styles.meterContainer,
             {
-              width: currentLevel ? `${currentLevel.percentage * 100}%` : "0%",
+              width: currentLevel && password ? `${currentLevel.percentage * 100}%` : "0%",
               backgroundColor: currentLevel?.color || "rgb(224, 224, 224)",
             },
           ]}
         />
       </View>
-      {currentLevel && (
+      {currentLevel && password && (
         <Text style={[styles.label, { marginTop: 4 }]}>
           {currentLevel.label}
         </Text>
